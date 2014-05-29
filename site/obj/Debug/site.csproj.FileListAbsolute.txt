@@ -1,4 +1,0 @@
-C:\Users\sagar\Desktop\ex\site\site\bin\site.dll
-C:\Users\sagar\Desktop\ex\site\site\bin\site.pdb
-C:\Users\sagar\Desktop\ex\site\site\obj\Debug\site.dll
-C:\Users\sagar\Desktop\ex\site\site\obj\Debug\site.pdb
