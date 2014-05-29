@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="site.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+    <link media="screen" type="text/css" href="css/StyleSheet.css" rel="stylesheet" />
+    <style type="text/css">
+        #masterHeader
+        {
+            width: 631px;
+            height: 80px;
+            margin-left: 146px;
+        }
+        #divFooter
+        {
+            height: 0px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="border-style:solid; height: 499px; width: 825px; margin-left: 193px;" 
+        id="border">
+            <div id="masterHeader" 
+                
+                
+                style=" position:relative; margin-left:163px; width: 822px; top: 0px; left: -163px;">
+                <div style="position: relative; top: 0px; width: 822px; left: 1px; right:1px;">
+                    <img  src="Images/background.png" height="80px" width="100%" />
+                </div>
+                <div id="divLogout" 
+                style=" position:absolute; width: 27%; top: 2px; right: 600px;left: 1px; height: 43px;">
+                     <div style="width: 101%; top: 2px;text-align: left; height: 19px;" 
+                    class="page-header">
+                        <asp:Label ID="lblUserName" runat="server"></asp:Label>
+                    </div>
+                    <div style="width: 100%;  top: 2px; right:450px;" class="page-header">
+                        <asp:Label ID="lblDate" runat="server"></asp:Label>
+                    </div>
+                </div>
+                <div  style=" position:absolute; width: 33%; top: 2px; right: 7px; left: 542px; height: 75px;">
+                    <div style="width: 52%; top: 2px; height: 32px; right :2px; left:550px; margin-left: 128px;"
+                    class="page-header">
+                        <asp:ImageButton ID="btnLogout" runat="server" ImageUrl="~/Images/images.jpg"
+                        Width="32px" Height="40px" ToolTip="LOGOUT"  
+                        CausesValidation="false" />
+                    
+                       <asp:ImageButton ID="btnLogin" runat="server" ImageUrl="~/Images/home_temp.png" 
+                        Width="32px" Height="40px"  ToolTip="HOME"
+                        CausesValidation="false" style="margin-top: 0px" />
+                    </div>            
+                 </div>
+            </div>
+            <div id="masterContainer" 
+                style=" margin-bottom: 1px; padding-top: 10px; height: 400px;  background-color:#B0E0E6;"  align="center">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+           
+       </div>
+    </form>
+</body>
+</html>
