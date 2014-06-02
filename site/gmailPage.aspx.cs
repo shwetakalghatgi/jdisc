@@ -33,9 +33,10 @@ namespace site
             {
                 switch (response.Status)
                 {
-                   
+                   //test
                     case AuthenticationStatus.Authenticated:
                         NotLoggedIn.Visible = false;
+
                         btngmaillogout.Visible = true;
 
                         var fetchResponse = response.GetExtension<FetchResponse>();

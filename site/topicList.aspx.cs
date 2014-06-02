@@ -15,9 +15,10 @@ namespace site
         public string conStr = @"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE";
         SqlConnection sql = new SqlConnection(@"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE");
         public string emailId;
+        public int dummy;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            dummy = 1;
              emailId = (string)Request.QueryString["userEmail"];
             Master.FindControl("btnUserProf").Visible = true;
             loadTopics();

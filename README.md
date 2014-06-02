@@ -7,4 +7,5 @@ About :
 
 This is a site development project. The site is for Journal paper discussion.
 
- 
+Just editing for checking.
+
