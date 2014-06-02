@@ -3,8 +3,10 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
 
-    <div>
-     <table>
+     <div id="body-container" 
+        
+        style="position: relative; margin: 0 auto; padding: 0% 2% 2%; top: 0px; left: 0px; height: 295px; width: 793px;">
+<table style=" position:relative; width: 689px; margin-left:0px; top: 0px; left: -58px;">
               
             <tr>
                 <td>
@@ -41,17 +43,18 @@
                     <asp:TextBox runat="server" ID="txtComm" TextMode="MultiLine" Rows="2"></asp:TextBox>
                   
                 </td>
-                <td>
-                    <asp:Button runat="server" Text="Draw" ID="brnDraw" onclick="brnDraw_Click" />
-                </td>
-                <td>
-                    <asp:Button runat="server" Text="Equation" ID="btnEqn" onclick="btnEqn_Click" />
-                </td>
+               
               </tr>
              <tr>
                 <td>
                     <asp:Button runat="server" Text="Submit"   
                      onclick="saveComments" />
+                </td>
+                 <td align="left">
+                    <asp:Button runat="server" Text="Draw" ID="brnDraw" onclick="brnDraw_Click" />
+                </td>
+                <td align="left">
+                    <asp:Button runat="server" Text="Equation" ID="btnEqn" onclick="btnEqn_Click" />
                 </td>
                
              </tr>
@@ -61,6 +64,7 @@
                     <asp:Label runat="server" ID="lblComments" Text='<%# Eval("titleComm") %>'></asp:Label>
              </ItemTemplate></asp:TemplateField></Columns>
              </asp:GridView></td></tr>
+
         </table>
     </div>
     

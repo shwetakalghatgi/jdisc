@@ -24,13 +24,25 @@ namespace site
 
         }
 
-        protected void btnlogout_Click(object sender, EventArgs e)
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Clear();
             Session.Abandon();
             Response.Redirect("Login.aspx");
         }
 
+        protected void btnLogin_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("topicList.aspx");
+        }
+
+        protected void btnUserProf_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect(String.Format("userProfile.aspx?userName={0}",  Session["Username"].ToString()));
+
+        }
+
+        
         
         
     }

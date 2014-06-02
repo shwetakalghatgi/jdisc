@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetOpenAuth, Version=3.4.6.10357, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DotNetOpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="google_login, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\google_login.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -59,6 +67,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="addNewTopic.aspx" />
     <Content Include="allTopicsOfSubject.aspx" />
+    <Content Include="gmailPage.aspx" />
     <Content Include="HTML.htm" />
     <Content Include="Images\background.png" />
     <Content Include="Images\binary.gif" />
@@ -85,6 +94,7 @@
     <Content Include="Images\custom_rgb_g.png" />
     <Content Include="Images\custom_rgb_r.png" />
     <Content Include="Images\custom_submit.png" />
+    <Content Include="Images\googleSignIn.jpg" />
     <Content Include="Images\greeklower.gif" />
     <Content Include="Images\home_temp.png" />
     <Content Include="Images\images.jpg" />
@@ -92,6 +102,7 @@
     <Content Include="Images\select.png" />
     <Content Include="Images\select2.png" />
     <Content Include="Images\slider.png" />
+    <Content Include="Images\userImage.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="registration.aspx" />
     <Content Include="Scripts\app.js" />
@@ -116,6 +127,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="topicListOfSub.aspx" />
+    <Content Include="userProfile.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -125,6 +137,7 @@
     </Content>
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -182,6 +195,13 @@
     </Compile>
     <Compile Include="allTopicsOfSubject.aspx.designer.cs">
       <DependentUpon>allTopicsOfSubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gmailPage.aspx.cs">
+      <DependentUpon>gmailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gmailPage.aspx.designer.cs">
+      <DependentUpon>gmailPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -243,6 +263,13 @@
     <Compile Include="topicListOfSub.aspx.designer.cs">
       <DependentUpon>topicListOfSub.aspx</DependentUpon>
     </Compile>
+    <Compile Include="userProfile.aspx.cs">
+      <DependentUpon>userProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userProfile.aspx.designer.cs">
+      <DependentUpon>userProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -256,6 +283,13 @@
     </Compile>
     <Compile Include="WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -24,7 +24,7 @@ namespace site
             sql.Open();
             DataSet ds = new DataSet();
 
-            SqlDataAdapter adp = new SqlDataAdapter("select distinct subject from Topic_List", conStr);
+            SqlDataAdapter adp = new SqlDataAdapter("select distinct subject from Topic_List where userName='"+ Session["Username"].ToString() +"'", conStr);
             adp.Fill(ds, "Topic_List");
             gridviewSub.DataSource = ds;
             gridviewSub.DataBind();

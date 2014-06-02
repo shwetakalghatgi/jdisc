@@ -14,21 +14,42 @@ namespace site
     {
         public string conStr = @"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE";
         SqlConnection sql = new SqlConnection(@"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE");
-
+        public string emailId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+             emailId = (string)Request.QueryString["userEmail"];
+            Master.FindControl("btnUserProf").Visible = true;
             loadTopics();
         }
 
-        public void loadTopics()
+        protected void loadTopics()
         {
+            SqlDataAdapter adp;
+            string text = (string)Request.QueryString["subject"];
             sql.Open();
             DataSet ds = new DataSet();
-
-            SqlDataAdapter adp = new SqlDataAdapter("select * from Topic_List where userName='" + Session["userName"].ToString() + "'", conStr);
+            if (text == null)
+            {
+                if (emailId != null)
+                {
+                    adp = new SqlDataAdapter("select * from Topic_List where userEmailId='" + emailId + "'", conStr);
+                }
+                else
+                {
+                 adp = new SqlDataAdapter("select * from Topic_List where userName='" + Session["Username"].ToString() +"'", conStr);
+                }
+            }
+            else
+            {
+                 adp = new SqlDataAdapter("select * from Topic_List where userName='" + Session["userName"].ToString() + "'and subject ='" + text + "'", conStr);
+            
+            }
+           // SqlDataAdapter adp = new SqlDataAdapter("select * from Topic_List where userName='" + Session["userName"].ToString() + "'and subject ='" + text + "'", conStr);
+            //SqlDataAdapter adp = new SqlDataAdapter("select * from Topic_List where  subject ='" + text + "'", conStr);
             adp.Fill(ds, "Topic_List");
             gridView1.DataSource = ds;
-           
+
             gridView1.DataBind();
             sql.Close();
             if (gridView1.Rows.Count == 0)//.Visible == false)
@@ -44,8 +65,8 @@ namespace site
         {
             sql.Open();
             HyperLink hlID = (HyperLink)gridView1.Rows[e.RowIndex].FindControl("hl");
-            string str = "delete  from titleCommments where title='" +hlID.Text +"';delete  from Topic_List where title='" + hlID.Text +"'";
-            SqlCommand cmd = new SqlCommand(str,sql);
+            string str = "delete  from titleCommments where title='" + hlID.Text + "';delete  from Topic_List where title='" + hlID.Text + "'";
+            SqlCommand cmd = new SqlCommand(str, sql);
             cmd.ExecuteNonQuery();
             sql.Close();
             loadTopics();

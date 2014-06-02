@@ -21,16 +21,22 @@ namespace site
         }
 
         protected void loadtopic()
-        {
+        {   
             string text = Request.QueryString["subject"];
+            lblTitle.Text = "List of topics of subject:" + text;
             sql.Open();
             DataSet ds = new DataSet();
-
             SqlDataAdapter adp = new SqlDataAdapter("select title from Topic_List where subject='" + text+"'", conStr);
             adp.Fill(ds, "Topic_List");
-          listTopicOfSub.DataSource = ds;
-          listTopicOfSub.DataBind();
+            listTopicOfSub.DataSource = ds;
+            listTopicOfSub.DataBind();
             sql.Close();
+            if (listTopicOfSub.Rows.Count == 0)//.Visible == false)
+            {
+                listTopicOfSub.Visible = false;
+                lblTitle.Text = "No data";
+                //oooo
+            }
         }
     }
 }

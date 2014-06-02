@@ -44,11 +44,16 @@
                     class="page-header">
                         <asp:ImageButton ID="btnLogout" runat="server" ImageUrl="~/Images/images.jpg"
                         Width="32px" Height="40px" ToolTip="LOGOUT"  
-                        CausesValidation="false" />
+                        CausesValidation="false" onclick="btnLogout_Click" />
                     
                        <asp:ImageButton ID="btnLogin" runat="server" ImageUrl="~/Images/home_temp.png" 
                         Width="32px" Height="40px"  ToolTip="HOME"
-                        CausesValidation="false" style="margin-top: 0px" />
+                        CausesValidation="false" style="margin-top: 0px" onclick="btnLogin_Click" />
+
+                        <asp:ImageButton ID="btnUserProf" runat="server"  ImageUrl="~/Images/userImage.jpg"
+                        Width="32px" Height="40px"    ToolTip="User Profile"
+                        CausesValidation="false" style="margin-top: 0px" 
+                            onclick="btnUserProf_Click"   />
                     </div>            
                  </div>
             </div>

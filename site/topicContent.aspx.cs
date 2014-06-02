@@ -31,26 +31,7 @@ namespace site
 
         }
         
-        public static void btnSignUp_Click(string n)
-        {
-            //var image = document.getElementById("imageView").toDataURL("image/png");
-            //      alert(image);
-            //      image = image.replace('data:image/png;base64,', '');
-
-            // string conStr = @"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE";
-            SqlConnection sql = new SqlConnection(@"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE");
-
-            SqlCommand cmd;
-
-
-            cmd = new SqlCommand("insert into emp1  (num) values (001)", sql);
-            sql.Open();
-            // cmd.Parameters.AddWithValue("@num", num);
-
-            cmd.ExecuteNonQuery();
-            sql.Close();
-
-        }
+       
 
         protected void loadTopicComments()
         {
