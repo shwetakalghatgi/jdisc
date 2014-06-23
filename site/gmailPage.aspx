@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gmailPage.aspx.cs" MasterPageFile="~/Site.Master" Inherits="site.gmailPage" %>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-<style type="text/css">
+    <style type="text/css">
 .btngoogle
 {
     background-image:url('Images/googleSignIn.jpg');

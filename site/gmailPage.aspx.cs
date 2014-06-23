@@ -45,7 +45,7 @@ namespace site
 
                         lblemail.Text = response2.GetAttributeValue(WellKnownAttributes.Contact.Email);
                         lblname.Text = GetFullname(response2.GetAttributeValue(WellKnownAttributes.Name.First), response2.GetAttributeValue(WellKnownAttributes.Name.Last));
-                        Response.Redirect("~/topicList.aspx?userEmail=" + lblemail.Text + "userName=" + lblname.Text);
+                        Response.Redirect("~/TopicList.aspx?userEmail=" + lblemail.Text + "userName=" + lblname.Text);
                         break;
                     case AuthenticationStatus.Canceled:
                         lblAlertMsg.Text = "Cancelled.";

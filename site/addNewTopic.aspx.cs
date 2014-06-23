@@ -21,12 +21,44 @@ namespace site
 
         protected void create_Click(object sender, EventArgs e)
         {
-            sql.Open();
-            string str = "insert into Topic_List values ('" + txtTitleName.Text + "','" + txtTitleAuthor.Text + " ','','" + txtSubject.Text + "','"+ Session["userName"].ToString() +"')";
-            SqlCommand cmd = new SqlCommand(str, sql);
-            cmd.ExecuteNonQuery();
-            sql.Close();
-            Response.Redirect("topicList.aspx");
+            if (txtTitleAuthor.Text == null || txtSubject.Text == null || txtTitleName.Text == null)
+            {
+                lblAlert.Text = "Required fields need to be filled";
+            }
+            else
+            {
+                SqlCommand cmd;
+                int fileLength = fileUpload.PostedFile.ContentLength;
+                byte[] fileData = new byte[fileLength];
+
+                fileUpload.PostedFile.InputStream.Read(fileData, 0, fileLength);
+
+                if (fileData.Length != 0)
+                {
+
+                    cmd = new SqlCommand("insert into Topic_List values (@title,@author,@subject,@userName,@userEmailId,@fileData)", sql);
+                    cmd.Parameters.AddWithValue("@fileData", fileData);
+                }
+                else
+                {
+                    cmd = new SqlCommand("insert into Topic_List (title,author,subject,userName,userEmailId) values (@title,@author,@subject,@userName,@userEmailId)", sql);
+
+                }
+
+                sql.Open();
+                cmd.Parameters.AddWithValue("@title", txtTitleName.Text);
+                cmd.Parameters.AddWithValue("@author", txtTitleAuthor.Text);
+                cmd.Parameters.AddWithValue("@subject", txtSubject.Text);
+                cmd.Parameters.AddWithValue("@userName", Session["Username"].ToString());
+                cmd.Parameters.AddWithValue("@userEmailId", Session["userEmailId"].ToString());
+
+                // string str = "insert into Topic_List values ('" + txtTitleName.Text + "','" + txtTitleAuthor.Text + " ','','" + txtSubject.Text + "','','" + Session["userEmailId"].ToString() + "')";
+
+
+                cmd.ExecuteNonQuery();
+                sql.Close();
+                Response.Redirect("TopicList.aspx");
+            }
         }
     }
 }

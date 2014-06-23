@@ -8,6 +8,7 @@
         <tr>
             <td style="width: 197px">
                 <asp:Label ID="Label1" runat="server"  Text="Topic_Title"></asp:Label>
+                <asp:Label ID="Label3" runat="server" ForeColor="Red">*</asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtTitleName" runat="server"></asp:TextBox>
@@ -16,6 +17,7 @@
         <tr>
             <td style="width: 197px">
                 <asp:Label runat="server" Text="Author_Name"></asp:Label>
+                <asp:Label ID="Label4" runat="server" ForeColor="Red">*</asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtTitleAuthor" runat="server"></asp:TextBox>
@@ -24,6 +26,7 @@
         <tr>
             <td style="width: 197px">
                 <asp:Label ID="Label2" runat="server" Text="Subject"></asp:Label>
+                <asp:Label ID="Label5" runat="server" ForeColor="Red">*</asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>
@@ -34,8 +37,14 @@
                 <asp:FileUpload ID="fileUpload" runat="server" Width="272px" />
             </td>
         </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server" ID="lblAlert" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
        <tr>
         <td style="width: 197px">
+            
             <asp:Button Text="create" runat="server" onclick="create_Click" />
         </td>
        </tr>

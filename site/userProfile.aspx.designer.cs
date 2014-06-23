@@ -22,31 +22,22 @@ namespace site {
         protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
-        /// Qualification control.
+        /// myImg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Qualification;
+        protected global::System.Web.UI.WebControls.Image myImg;
         
         /// <summary>
-        /// txtQuali control.
+        /// txtSkill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuali;
-        
-        /// <summary>
-        /// fuImportImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuImportImage;
+        protected global::System.Web.UI.WebControls.TextBox txtSkill;
         
         /// <summary>
         /// btnSubmit control.

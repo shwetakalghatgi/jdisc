@@ -109,24 +109,26 @@
     <Content Include="Scripts\colorpicker.js" />
     <Content Include="Scripts\colpick.js" />
     <Content Include="Scripts\eye.js" />
+    <Content Include="Scripts\html2canvas.js" />
+    <Content Include="Scripts\html2canvas.min.js" />
     <Content Include="Scripts\jquery-1.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.plugin.html2canvas.js" />
     <Content Include="Scripts\layout.js" />
     <Content Include="Scripts\utils.js" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Styles\colorpicker.css" />
     <Content Include="Styles\colpick.css" />
     <Content Include="Styles\Site.css" />
-    <Content Include="subjectsPage.aspx" />
-    <Content Include="test.aspx" />
-    <Content Include="topicContent.aspx" />
-    <Content Include="topicList.aspx" />
+    <Content Include="SubjectsPage.aspx" />
+    <Content Include="TopicContent.aspx" />
+    <Content Include="TopicList.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="topicListOfSub.aspx" />
+    <Content Include="TopicListOfSub.aspx" />
     <Content Include="userProfile.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -135,9 +137,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="WebForm1.aspx" />
-    <Content Include="WebForm2.aspx" />
-    <Content Include="WebForm3.aspx" />
+    <Content Include="ImageDrawPopUp.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -217,33 +217,26 @@
     <Compile Include="registration.aspx.designer.cs">
       <DependentUpon>registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="subjectsPage.aspx.cs">
-      <DependentUpon>subjectsPage.aspx</DependentUpon>
+    <Compile Include="SubjectsPage.aspx.cs">
+      <DependentUpon>SubjectsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="subjectsPage.aspx.designer.cs">
-      <DependentUpon>subjectsPage.aspx</DependentUpon>
+    <Compile Include="SubjectsPage.aspx.designer.cs">
+      <DependentUpon>SubjectsPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="TopicContent.aspx.cs">
+      <DependentUpon>TopicContent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="TopicContent.aspx.designer.cs">
+      <DependentUpon>TopicContent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="topicContent.aspx.cs">
-      <DependentUpon>topicContent.aspx</DependentUpon>
+    <Compile Include="TopicList.aspx.cs">
+      <DependentUpon>TopicList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="topicContent.aspx.designer.cs">
-      <DependentUpon>topicContent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="topicList.aspx.cs">
-      <DependentUpon>topicList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="topicList.aspx.designer.cs">
-      <DependentUpon>topicList.aspx</DependentUpon>
+    <Compile Include="TopicList.aspx.designer.cs">
+      <DependentUpon>TopicList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -256,12 +249,12 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="topicListOfSub.aspx.cs">
-      <DependentUpon>topicListOfSub.aspx</DependentUpon>
+    <Compile Include="TopicListOfSub.aspx.cs">
+      <DependentUpon>TopicListOfSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="topicListOfSub.aspx.designer.cs">
-      <DependentUpon>topicListOfSub.aspx</DependentUpon>
+    <Compile Include="TopicListOfSub.aspx.designer.cs">
+      <DependentUpon>TopicListOfSub.aspx</DependentUpon>
     </Compile>
     <Compile Include="userProfile.aspx.cs">
       <DependentUpon>userProfile.aspx</DependentUpon>
@@ -270,26 +263,12 @@
     <Compile Include="userProfile.aspx.designer.cs">
       <DependentUpon>userProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="ImageDrawPopUp.aspx.cs">
+      <DependentUpon>ImageDrawPopUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm3.aspx.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm3.aspx.designer.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
+    <Compile Include="ImageDrawPopUp.aspx.designer.cs">
+      <DependentUpon>ImageDrawPopUp.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -307,7 +286,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>65276</DevelopmentServerPort>
+          <DevelopmentServerPort>51387</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

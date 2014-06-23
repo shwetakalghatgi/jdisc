@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="site.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ImageDrawPopUp.aspx.cs" Inherits="site.WebForm1" EnableViewStateMac="false" EnableViewState="false" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -16,7 +16,7 @@
     
  
    
-    <script>
+    <script type="text/javascript">
 
         $(document).ready(function () {
 
@@ -66,7 +66,7 @@
                 canvas.addEventListener('mousemove', ev_canvas, false);
                 canvas.addEventListener('mouseup', ev_canvas, false);
             }
-
+            ;
             // This painting tool works like a drawing pencil which tracks the mouse 
             // movements.
             function tool_pencil() {
@@ -119,27 +119,69 @@
 
             //Image Save
 
-            $('#btnSignUp').click(function () {
-                //var num = 77;
-                var image = document.getElementById("imageView").toDataURL("image/png");
-               // alert(image);
-                image = image.replace('data:image/png;base64,', '');
-                alert("inn");
-                $.ajax({
-                    type: 'POST',
-                    url: '/WebForm1.aspx/btnSignUp_Click',
-                    data: '{ "imageData" : "' + image + '" }',
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: 'json',
-                    success: function (msg) {
-                        alert("Success :: " + msg);
-                    }
-                });
+            //            $('#btnSignUp').click(function () {
+            //                var canvas = document.getElementById("imageView");
+            //                var ctx = canvas.getContext("2d");
+            //                
+            ////                baseimage = new Image();
+            ////                baseimage.src = 'what.jpg';
+            ////                baseimage.onload = function () {
+            ////                    ctx.drawImage(baseimage, 1, 1);
+            ////                    
+            ////                }
 
-            }); //Imagesave
+            //              var image = canvas.toDataURL("image/png");
+            //               // alert(image);
+
+            //              document.getElementById('canvasImg').src = image;
+            //                
+            //             //   $("#myCanvas").show();
+
+
+            //                                //var num = 77;
+            ////                               var image = document.getElementById("imageView").toDataURL("image/png");
+            ////                             //   alert(image);
+            ////                                //image = image.replace('data:image/png;base64,', '');
+            ////                              //  alert(image);
+            ////                                $.ajax({
+            ////                                    type: 'POST',
+            ////                                    url: '/topicContent.aspx/btnSignUp_Click',
+            ////                                    data: '{ "imageData" : "' + image + '" }',
+            ////                                    contentType: 'application/json; charset=utf-8',
+            ////                                    dataType: 'json',
+            ////                                    success: function (msg) {
+            ////                                        alert("Success :: " + msg);
+            ////                                    }
+            ////                                });
+
+            //            }); //Imagesave
+
+            $("#btnSignUp").click(function () {
+
+                var canvas = document.getElementById("imageView");
+                var image;
+
+                image = canvas.toDataURL("image/png");
+
+                var add_image = "<image style='border: 1px solid #000;' src='" + image + "'>";
+                
+                //  alwindow.opener.$("#txtComm").val());
+                window.opener.$("#divPreview").append('<p>' + add_image + '</p>');
+                window.close();
+            });
         });
 
-            
+
+
+//        function test() {
+//           
+//            var canvas = document.getElementById("imageView");
+//            var image;
+//            image = canvas.toDataURL("image/png");
+//           
+//            window.opener.document.getElementById("canvasImg").src = image;
+//             window.close();
+//         }
 
            
         
@@ -154,17 +196,21 @@
 		</style>
 </head>
 <body>
-    <form id="form2" runat="server">
+    <form id="form2" runat="server" action="TopicContent.aspx">
         <%--<asp:Button id="btnSignUp" runat="server" />--%>
         <div id="container">
-			<canvas id="imageView" width="400" height="300">
-				<p>Unfortunately, your browser is currently unsupported by our web application. We are sorry for the inconvenience. Please use one of the supported browsers listed below, or draw the image you want using an offline tool.</p>
-				<p>Supported browsers: <a href="http://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, <a href="http://www.apple.com/safari">Safari</a>, and <a href="http://www.konqueror.org">Konqueror</a>.</p>
-			</canvas>
+			<canvas id="imageView">
+		    </canvas>
+           <%-- <asp:Image runat="server" id="canvasImg" /> --%>
+            
 		</div>
     <div id="colorPicker">
     </div>
-        <input type="button" id="btnSignUp" value="Send To Server" />
+    
+        <input type="button" id="btnSignUp" value="Send To Server"   />
+        <asp:Button runat="server" />
+        
+        
     </form>
 </body>
 </html>

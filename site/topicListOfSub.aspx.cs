@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace site
 {
-    public partial class topicListOfSub : System.Web.UI.Page
+    public partial class TopicListOfSub : System.Web.UI.Page
     {
         public string conStr = @"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE";
         SqlConnection sql = new SqlConnection(@"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE");

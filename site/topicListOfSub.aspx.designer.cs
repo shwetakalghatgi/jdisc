@@ -10,7 +10,7 @@
 namespace site {
     
     
-    public partial class topicListOfSub {
+    public partial class TopicListOfSub {
         
         /// <summary>
         /// lblTitle control.

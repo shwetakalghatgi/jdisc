@@ -9,7 +9,7 @@
                 <Columns>
                     <asp:TemplateField>
                          <ItemTemplate>
-                            <asp:HyperLink ID="hlTopicSub" runat="server" Text='<%# Eval("subject") %>' NavigateUrl='<%# Eval("title", "~/topicContent.aspx?title={0}")%>'></asp:HyperLink>
+                            <asp:HyperLink ID="hlTopicSub" runat="server" Text='<%# Eval("subject") %>' NavigateUrl='<%# Eval("title", "~/TopicContent.aspx?title={0}")%>'></asp:HyperLink>
                          </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

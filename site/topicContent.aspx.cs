@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Drawing;
+
 using System.Web.Services;
 
 namespace site
@@ -17,56 +18,66 @@ namespace site
          public SolidBrush brush;
          public Graphics graphic;
          public bool isDrawing = false;
-         
+         public string topicTitle;
+         public string imageUrl;
          public string conStr = @"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE";
          SqlConnection sql = new SqlConnection(@"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE");
-         public string text;
+       
         protected void Page_Load(object sender, EventArgs e)
-        {   
-              
-            text = (string)Request.QueryString["title"];
+        {
+            topicTitle = (string)Request.QueryString["topicTitle"];
             loadTopicContent();
             loadTopicComments();
-           // string text = (string)Request.QueryString["title"];
 
         }
-        
-       
+
+        [WebMethod()]
+        public static void btnSignUp_Click(string imageData, string title)
+        {
+            SqlConnection sql = new SqlConnection(@"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE");
+            SqlCommand cmd;
+            cmd = new SqlCommand("insert into titleCommments (titleImage,title) values (@titleImage,@title)", sql);
+            sql.Open();
+            cmd.Parameters.AddWithValue("@titleImage", imageData);
+            cmd.Parameters.AddWithValue("@title", title);
+            cmd.ExecuteNonQuery();
+            sql.Close();
+        }
 
         protected void loadTopicComments()
         {
-            // PAINT CODE
-        
-            //END OF PAINT CODE
-            sql.Open();
-            DataSet ds = new DataSet();
-
-            SqlDataAdapter adp = new SqlDataAdapter("select titleComm from titleCommments where title = '" +text+ "'", conStr);
-            adp.Fill(ds, "titleCommments");
-            gridView2.DataSource = ds;
-            gridView2.DataBind();
-            sql.Close();
+             string str = "select titleImage from titleCommments where title = '" + topicTitle + "'";
+             sql.Open();
+             SqlCommand cmd = new SqlCommand(str,sql);             
+             SqlDataReader dr = cmd.ExecuteReader();
+             DataTable dt = new DataTable();
+             dt.Load(dr);
+            int rowsCount =  dt.Rows.Count;
+            foreach (DataRow row in dt.Rows)
+            {
+                imageUrl = imageUrl + row["titleImage"].ToString();
+            }
+             sql.Close();
+             divId.InnerHtml = imageUrl;
+            
         }
         protected void mouseDown()
         {
             Response.Write("oo");
         }
         protected void saveComments(object sender, EventArgs e)
-        {
-            
+        { 
+
             sql.Open();
-           // string str = "insert into titleCommments set titleComm= '" + txtComm.Text + "' where title = '" + txtTitle.Text + "' ";
             string str = "insert into titleCommments values ('" + txtTitle.Text + "','" + txtComm.Text + "')";
-            SqlCommand cmd = new SqlCommand(str,sql);
+            SqlCommand cmd = new SqlCommand(str, sql);
             cmd.ExecuteNonQuery();
             sql.Close();
             loadTopicComments();
         }
          public void loadTopicContent()
          {
-             
-             
-             string str = "select * from Topic_List where title = " + "'" + text + "'";
+             string str = "select * from Topic_List where title = " + "'" + topicTitle + "'";
              sql.Open();
              SqlCommand cmd = new SqlCommand(str,sql);
              
@@ -81,14 +92,11 @@ namespace site
              sql.Close();
          }
 
-         protected void brnDraw_Click(object sender, EventArgs e)
-         {
-             Response.Redirect("WebForm1.aspx");
-         }
+        
 
          protected void btnEqn_Click(object sender, EventArgs e)
          {
-             Response.Redirect("WebForm2.aspx");
+             Response.Redirect("ImageDrawPopUp.aspx");
          }
 
        

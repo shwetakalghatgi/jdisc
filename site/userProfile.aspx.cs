@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace site
 {
@@ -17,17 +18,18 @@ namespace site
         public string id;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string text = (string)Request.QueryString["userName"];
-             cmd = new SqlCommand("select * from userInfo where userName=@text ", sql);
+
+            string userEmailID = Session["userEmailId"].ToString(); //(string)Request.QueryString["userName"];
+            cmd = new SqlCommand("select * from userInfo where userEmailId='" + Session["userEmailId"].ToString() + "'", sql);
             sql.Open();
-            cmd.Parameters.AddWithValue("@text", text);
+           // cmd.Parameters.AddWithValue("@text", userEmailID);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows && dr.Read())
             {
 
                 txtUserName.Text = dr["userName"].ToString();
-                txtQuali.Text = dr["userQualification"].ToString();
-                id = dr["userID"].ToString();
+                txtSkill.Text = dr["userQualification"].ToString();
+               // id = dr["userID"].ToString();
                 //tNum.Text = dr["num"].ToString();
                 ////   fileUpload.
                 //Image1.ImageUrl = "Handler.ashx?num=" + dd.Text;
@@ -41,34 +43,41 @@ namespace site
         }
 
 
-
+       
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             
 
-            int img = fuImportImage.PostedFile.ContentLength;
+           //// int img = fuImportImage.PostedFile.ContentLength;
 
-            byte[] msdata = new byte[img];
-            if (msdata.Length != 0)
-            {
-                fuImportImage.PostedFile.InputStream.Read(msdata, 0, img);
-                cmd = new SqlCommand("update userInfo set userImage= @image where userID=@id", sql);
-                cmd.Parameters.AddWithValue("@image", msdata);
-                cmd.Parameters.AddWithValue("@id", id);
+           // byte[] msdata = new byte[img];
+           // if (msdata.Length != 0)
+           // {
+           //     fuImportImage.PostedFile.InputStream.Read(msdata, 0, img);
+           //     cmd = new SqlCommand("update userInfo set userImage= @image where userID=@id", sql);
+           //     cmd.Parameters.AddWithValue("@image", msdata);
+           //     cmd.Parameters.AddWithValue("@id", id);
 
-            }
-            else
-            {
-               // cmd = new SqlCommand("update emp1 set namee=@namee1,address = @address where num=@num ", con);
-            }
-            sql.Open();
+           // }
+           // else
+           // {
+           //    // cmd = new SqlCommand("update emp1 set namee=@namee1,address = @address where num=@num ", con);
+           // }
+           // sql.Open();
 
-            //cmd.Parameters.AddWithValue("@namee1", tName.Text);
-            //cmd.Parameters.AddWithValue("@address", tAddress.Text);
-            //cmd.Parameters.AddWithValue("@num", tNum.Text);
-            cmd.ExecuteNonQuery();
-            sql.Close();
+           // //cmd.Parameters.AddWithValue("@namee1", tName.Text);
+           // //cmd.Parameters.AddWithValue("@address", tAddress.Text);
+           // //cmd.Parameters.AddWithValue("@num", tNum.Text);
+           // cmd.ExecuteNonQuery();
+           // sql.Close();
             
+        }
+
+        protected void UploadButton_Click(object sender, EventArgs e)
+        {
+            //FileUploadControl.SaveAs(MapPath("." + FileUploadControl.FileName));
+            //UserImage.ImageUrl = "." + FileUploadControl.FileName;
+
         }
     }
 }

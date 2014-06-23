@@ -14,16 +14,30 @@ namespace site
     {
         public string conStr = @"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE";
         SqlConnection sql = new SqlConnection(@"data source=SAGAR\SQLEXPRESS;database=shweta;integrated security=TRUE");
+        SqlCommand cmd;
         public string emailId;
-        public int dummy;
+      
         protected void Page_Load(object sender, EventArgs e)
         {
-            dummy = 1;
-             emailId = (string)Request.QueryString["userEmail"];
-            Master.FindControl("btnUserProf").Visible = true;
+            Master.FindControl("btnHome").Visible = false;
+            loadUserName();
             loadTopics();
         }
 
+        protected void loadUserName()
+        {
+            //emailId = (string)Request.QueryString["emailId"];
+           emailId= Session["userEmailId"].ToString();
+            string str = "select userName from userInfo where userEmailId='" + emailId + "'";
+            sql.Open();
+             cmd = new SqlCommand(str, sql);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows && dr.Read())
+            {
+                Session["Username"] = dr["userName"].ToString();
+            }
+            sql.Close();
+        }
         protected void loadTopics()
         {
             SqlDataAdapter adp;
@@ -32,22 +46,16 @@ namespace site
             DataSet ds = new DataSet();
             if (text == null)
             {
-                if (emailId != null)
-                {
-                    adp = new SqlDataAdapter("select * from Topic_List where userEmailId='" + emailId + "'", conStr);
-                }
-                else
-                {
-                 adp = new SqlDataAdapter("select * from Topic_List where userName='" + Session["Username"].ToString() +"'", conStr);
-                }
+              
+                adp = new SqlDataAdapter("select * from Topic_List where userEmailId='" + Session["userEmailId"].ToString() + "'", conStr);
+              
             }
             else
             {
                  adp = new SqlDataAdapter("select * from Topic_List where userName='" + Session["userName"].ToString() + "'and subject ='" + text + "'", conStr);
             
             }
-           // SqlDataAdapter adp = new SqlDataAdapter("select * from Topic_List where userName='" + Session["userName"].ToString() + "'and subject ='" + text + "'", conStr);
-            //SqlDataAdapter adp = new SqlDataAdapter("select * from Topic_List where  subject ='" + text + "'", conStr);
+        
             adp.Fill(ds, "Topic_List");
             gridView1.DataSource = ds;
 
@@ -57,7 +65,7 @@ namespace site
             {
                 gridView1.Visible = false;
                 Label1.Text = "No data";
-                //oooo
+               
             }
         }
 
@@ -67,7 +75,7 @@ namespace site
             sql.Open();
             HyperLink hlID = (HyperLink)gridView1.Rows[e.RowIndex].FindControl("hl");
             string str = "delete  from titleCommments where title='" + hlID.Text + "';delete  from Topic_List where title='" + hlID.Text + "'";
-            SqlCommand cmd = new SqlCommand(str, sql);
+             cmd = new SqlCommand(str, sql);
             cmd.ExecuteNonQuery();
             sql.Close();
             loadTopics();
@@ -79,7 +87,7 @@ namespace site
 
         protected void btnSub_Click(object sender, EventArgs e)
         {
-            Response.Redirect("subjectsPage.aspx");
+            Response.Redirect("SubjectsPage.aspx");
         }
     }
 }

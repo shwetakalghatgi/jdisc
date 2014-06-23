@@ -10,7 +10,7 @@
 namespace site {
     
     
-    public partial class subjectsPage {
+    public partial class SubjectsPage {
         
         /// <summary>
         /// lblSubList control.

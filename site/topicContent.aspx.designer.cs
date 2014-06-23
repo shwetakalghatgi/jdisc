@@ -67,15 +67,6 @@ namespace site {
         protected global::System.Web.UI.WebControls.TextBox txtAbstract;
         
         /// <summary>
-        /// Panel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-        
-        /// <summary>
         /// txtComm control.
         /// </summary>
         /// <remarks>
@@ -85,13 +76,31 @@ namespace site {
         protected global::System.Web.UI.WebControls.TextBox txtComm;
         
         /// <summary>
-        /// brnDraw control.
+        /// lblEqn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button brnDraw;
+        protected global::System.Web.UI.WebControls.Label lblEqn;
+        
+        /// <summary>
+        /// txtEqn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEqn;
+        
+        /// <summary>
+        /// btnDrawImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDrawImage;
         
         /// <summary>
         /// btnEqn control.
@@ -110,5 +119,14 @@ namespace site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridView2;
+        
+        /// <summary>
+        /// divId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divId;
     }
 }

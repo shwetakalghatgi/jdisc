@@ -1,0 +1,5 @@
+C:\Users\sagar\Desktop\ex\site\jdisc\site\bin\site.dll
+C:\Users\sagar\Desktop\ex\site\jdisc\site\bin\site.pdb
+C:\Users\sagar\Desktop\ex\site\jdisc\site\obj\Debug\site.dll
+C:\Users\sagar\Desktop\ex\site\jdisc\site\obj\Debug\site.pdb
+C:\Users\sagar\Desktop\ex\site\jdisc\site\obj\Debug\site.csprojResolveAssemblyReference.cache
